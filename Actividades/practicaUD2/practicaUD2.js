@@ -241,6 +241,10 @@ function operacionesEncadenasa(operador1, operador2, callback1, calback2, calbac
 }
 operacionesEncadenasa(3,5)
 
+//7.
+
+function suma() {}
+
 
 
 
