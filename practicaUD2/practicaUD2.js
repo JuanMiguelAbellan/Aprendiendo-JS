@@ -436,26 +436,25 @@ function eliminarPais(array){
 
 //33.
 
-function cumpleEnDomingos(){
-    const diaCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo dia:"));
-    const mesCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo mes:"));
-    const añoActual = new Date().getFullYear()
-    //debugger;
-    for (let año = añoActual; año <= 2100; año++) {
-        const fecha = new Date(año, mesCumple - 1, diaCumple);
-        if (fecha.getDate() !== diaCumple) {
-            continue;
-        }
+// function cumpleEnDomingos(){
+//     const diaCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo dia:"));
+//     const mesCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo mes:"));
+//     const añoActual = new Date().getFullYear()
+//     //debugger;
+//     for (let año = añoActual; año <= 2100; año++) {
+//         const fecha = new Date(año, mesCumple - 1, diaCumple);
+//         if (fecha.getDate() !== diaCumple) {
+//             continue;
+//         }
 
-        if (fecha.getDay() === 0) {
-            //debugger;
-            console.log(año);
-        }
-    }
-}
+//         if (fecha.getDay() === 0) {
+//             //debugger;
+//             console.log(año);
+//         }
+//     }
+// }
 
-cumpleEnDomingos();
-
+// cumpleEnDomingos();
 
 //34.
 
@@ -465,6 +464,9 @@ cumpleEnDomingos();
 //     console.log(dias[dia])
 // }
 // diasTextoCorto(3)
+
+//35.
+
 
 
 
