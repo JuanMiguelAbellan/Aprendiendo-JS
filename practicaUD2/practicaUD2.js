@@ -382,8 +382,8 @@ function eliminarPais(array){
 
 //28.
 
-// function radomRango(inferior, superior){
-//     return Math.random()*(superior-inferior)+inferior
+//  function radomRango(inferior, superior){
+//     return Math.floor(Math.random()*(superior-inferior+1)+inferior)
 // }
 
 // console.log(radomRango(2, 5));
@@ -401,7 +401,9 @@ function eliminarPais(array){
 //30.
 
 // function crearFecha(fecha){
-//     return new Date(fecha)
+//     fecha.toLocalDateString()
+//      fecha.toDateString()
+//      fecha.toUTCSgtring()        
 // }
 
 // console.log(crearFecha(5/10/2021));
@@ -411,13 +413,12 @@ function eliminarPais(array){
 
 //31.
 
-// function horaDetallada(hora){
-//     nuevaHora = new Date(Date.parse(hora))
-
-//     console.log(nuevaHora.getHours()+ " " + nuevaHora.getMinutes());
-    
+// function horaDetallada(){
+//     hora = new Date()
+//     hora.toLocaleString()
+//     hora.toLocaleStrin("en-US")
 // }
-// horaDetallada("14:35:07")
+// horaDetallada()
 
 //32.
 
@@ -467,7 +468,21 @@ function eliminarPais(array){
 
 //35.
 
+// function ultimoDiaMes(mes, año){
+//     let fecha = new Date(año, mes, 0)
+//     console.log("El ultimo dia es "+ fecha);
+// }
+// ultimoDiaMes(2,2020)
 
+//36.
+
+function segunosPasados(){
+    let dia= new Date();
+
+    console.log("Han pasado "+ dia.getHours()*60+dia.getMinutes()*60+dia.getSeconds()+" segundos");
+    
+}
+segunosPasados()
 
 
 
