@@ -519,14 +519,14 @@ function eliminarPais(array){
 //     setCookie("nombreUser", nombre, 365)
 // }
 
-// nombreUser=localStorage.getItem("nombreUser")
-// if(nombreUser != ""){
-//     alert("Hola "+ localStorage.getItem("nombreUser"))
-// }else{
-//     alert("Nuevo usuario")
-//     nombre = prompt("Dime tu nombre")
-//     localStorage.setItem("nombreUser", nombre)
-// }
+nombreUser=localStorage.getItem("nombreUser")
+if(nombreUser != ""){
+    alert("Hola "+ localStorage.getItem("nombreUser"))
+}else{
+    alert("Nuevo usuario")
+    nombre = prompt("Dime tu nombre")
+    localStorage.setItem("nombreUser", nombre)
+}
 
 //38.
 
