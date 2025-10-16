@@ -476,16 +476,58 @@ function eliminarPais(array){
 
 //36.
 
-function segunosPasados(){
-    let dia= new Date();
+// function segunosPasados(){
+//     let dia= new Date();
 
-    console.log("Han pasado "+ dia.getHours()*60+dia.getMinutes()*60+dia.getSeconds()+" segundos");
+//     console.log("Han pasado "+ dia.getHours()*60+dia.getMinutes()*60+dia.getSeconds()+" segundos");
     
-}
-segunosPasados()
+// }
+// segunosPasados()
 
 
+//41.
+
+// function setCookie(cname, cvalue, exdays) {
+//   const d = new Date();
+//   d.setTime(d.getTime() + (exdays*24*60*60*1000));
+//   let expires = "expires="+ d.toUTCString();
+//   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+// }
+
+// function getCookie(cname) {
+//   let name = cname + "=";
+//   let decodedCookie = decodeURIComponent(document.cookie);
+//   let ca = decodedCookie.split(';');
+//   for(let i = 0; i <ca.length; i++) {
+//     let c = ca[i];
+//     while (c.charAt(0) == ' ') {
+//       c = c.substring(1);
+//     }
+//     if (c.indexOf(name) == 0) {
+//       return c.substring(name.length, c.length);
+//     }
+//   }
+//   return "";
+// }
+
+// let nombreCookie=getCookie("nombreUser")
+// if(nombreCookie != ""){
+//     alert("Hola de nuevo " + getCookie("nombreUser"))
+// }else{
+//     alert("Nuevo usuario")
+//     nombre = prompt("Dime tu nombre")
+//     setCookie("nombreUser", nombre, 365)
+// }
+
+// nombreUser=localStorage.getItem("nombreUser")
+// if(nombreUser != ""){
+//     alert("Hola "+ localStorage.getItem("nombreUser"))
+// }else{
+//     alert("Nuevo usuario")
+//     nombre = prompt("Dime tu nombre")
+//     localStorage.setItem("nombreUser", nombre)
+// }
+
+//38.
 
 
-
-//Hasta el 27
