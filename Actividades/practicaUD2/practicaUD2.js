@@ -231,24 +231,303 @@ console.log(suma3(4,5,6,12))
 */
 
 //21.
-
-function operacionesEncadenasa(operador1, operador2, callback1, calback2, calback3){
-    let resultado = 0;
+/* !!!RESOLVER
+function operacionesEncadenasa(operador1, operador2, callback1, callback2, callback3){
     
-    resultado = () => callback1(operador1 + operador2)
+    callback1=suma(operador1, operador2)
 
-    console.log(resultado)
+    callback2=producto(operador1, operador2)
+
+    callback3 = (callback1, callback2) =>{
+        console.log("Suma: " + callback1)
+        console.log("Producto: " +callback2)
+    }
 }
-operacionesEncadenasa(3,5)
 
-//7.
+function suma(num1, num2){
+    return num1+num2
+}
+function producto(num1, num2){
+    return num1%num2
+}
 
-function suma() {}
+operacionesEncadenasa(10 , 5)
+*/
+
+//22.
+/*
+let array = [12, 35, 68, 14]
+
+console.log(array.reduce(function(a, b){return a+b}))
+*/
+
+//23.
+/*
+let array = [12, 35, 68, 14]
+
+console.log("Hay " + array.reduce(function(a, b){
+    if (b%2==0){
+        a++
+    }
+    return a
+}, 0 )+" numeros pares")
+*/
+
+//24.
+/*
+let array=["Manzana", "Pera", "Frambuesa", "Fresa"]
+
+console.log("La palabra mas larga es: " + array.reduce(function(a, b){
+    if(b.length > a.length){
+        a = b
+    }
+    return a
+}))
+*/
+
+//25.
+/*
+const array=["Fresa" ,"Manzana", "Pera", "Frambuesa", "Fresa", "Fresa"]
+
+const set = new Set(array);
+
+console.log(set)
+*/
+
+//26.
+/*
+const paises = ["México", "Japón", "Italia", "Australia", "Brasil", "Canadá", "Francia", "Alemania", "India", "Argentina", "España", "China", "Sudáfrica", "Rusia", "Corea del Sur", "Reino Unido", "Estados Unidos", "Indonesia", "Egipto", "Turquía"];
+
+function mostrarArray(array){
+    document.getElementById("parrafo1").innerText = array;
+    let ol =document.createElement('ol')
+    array.forEach(element => {
+        let li = document.createElement('li')
+        li.textContent = element
+        ol.appendChild(li)
+    });
+    document.body.appendChild(ol)
+}
+
+mostrarArray(paises)
+
+function mostrarArrayAlreves(array){
+    mostrarArray(array.reverse())
+}
+
+mostrarArrayAlreves(paises)
+
+function añadirElemento(array){
+    let elemento = prompt("Dime elemento a añadir: ")
+
+    let respuesta = prompt("Principio o final")
+
+    if (respuesta=="Principio"){
+        array.unshift(elemento)
+    }else{
+        array.push(elemento)
+    }
+    mostrarArray(array)
+}
+añadirElemento(paises)
+
+function eliminarElemento(array){
+    let respuesta = prompt("Eliminar al principio o final")
+
+    if (respuesta=="Principio"){
+        array.shift()
+    }else{
+        array.pop()
+    }
+    mostrarArray(array)
+}
+eliminarElemento(paises)
+
+function buscarPais(array){
+    let buscado = prompt("Dime cual buscas")
+
+    console.log(array.findIndex((pais)=> pais == buscado))
+}
+buscarPais(paises)
+
+function añdirPais(array){
+    let pais = prompt("Dime pais a añadir")
+
+    if(array.find(pais)==undefined){
+        array.push(pais)
+    }else{
+        console.log("El pais ya esta dentro del array");
+    }
+}
+añdirPais(paises)
+
+function eliminarPais(array){
+    let pais = ("Dime pais a eliminar")
+
+    return array.splice(array.indexOf(pais), 1)
+}
+*/
+
+//27.
+
+// function redondeo(numero, tipo){
+//     console.log("El numero despues del redondeo " + tipo + " es " + tipo(numero));
+
+//     return tipo(numero)
+// }
+// redondeo(13.4, Math.round)
+// redondeo(13.4, Math.ceil)
+// redondeo(13.4, Math.floor)
+// redondeo(13.4, Math.trunc)
+
+//28.
+
+//  function radomRango(inferior, superior){
+//     return Math.floor(Math.random()*(superior-inferior+1)+inferior)
+// }
+
+// console.log(radomRango(2, 5));
+
+//29.
+
+// function trigonometrico(angulo, callback){
+//     angulo= angulo * Math.PI/180
+//     console.log("Se ha aplicado el metodo " + callback + " y el resultado es " + callback(angulo));
+    
+//     return callback(angulo)
+// }
+// trigonometrico(25, Math.cos)
+
+//30.
+
+// function crearFecha(fecha){
+//     fecha.toLocalDateString()
+//      fecha.toDateString()
+//      fecha.toUTCSgtring()        
+// }
+
+// console.log(crearFecha(5/10/2021));
+// console.log(crearFecha("Wed Oct 06 2021."));
+// console.log(crearFecha("Wed, 06 Oct 2021 15:54:47 GMT"));
 
 
+//31.
+
+// function horaDetallada(){
+//     hora = new Date()
+//     hora.toLocaleString()
+//     hora.toLocaleStrin("en-US")
+// }
+// horaDetallada()
+
+//32.
+
+// function diasHastaFinal(){
+//     let fechaFutura=new Date("2026/06/23")
+//     let presente=new Date()
+
+//     let diferencia = fechaFutura.getTime() - presente.getTime()
+
+//     let dias= Math.round(diferencia / (1000 * 60 * 60 * 24));
+
+//     console.log("Quedan ".concat(dias).concat( " dias hasta que acabe el curso"));
+    
+// }
+// diasHastaFinal();
+
+//33.
+
+// function cumpleEnDomingos(){
+//     const diaCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo dia:"));
+//     const mesCumple = Number.parseInt(prompt("Introduce tu cumpleaños solo mes:"));
+//     const añoActual = new Date().getFullYear()
+//     //debugger;
+//     for (let año = añoActual; año <= 2100; año++) {
+//         const fecha = new Date(año, mesCumple - 1, diaCumple);
+//         if (fecha.getDate() !== diaCumple) {
+//             continue;
+//         }
+
+//         if (fecha.getDay() === 0) {
+//             //debugger;
+//             console.log(año);
+//         }
+//     }
+// }
+
+// cumpleEnDomingos();
+
+//34.
+
+// function diasTextoCorto(dia){
+//     const dias=["MO", "TU", "WE", "TH", "FR", "SA", "SU"]
+
+//     console.log(dias[dia])
+// }
+// diasTextoCorto(3)
+
+//35.
+
+// function ultimoDiaMes(mes, año){
+//     let fecha = new Date(año, mes, 0)
+//     console.log("El ultimo dia es "+ fecha);
+// }
+// ultimoDiaMes(2,2020)
+
+//36.
+
+// function segunosPasados(){
+//     let dia= new Date();
+
+//     console.log("Han pasado "+ dia.getHours()*60+dia.getMinutes()*60+dia.getSeconds()+" segundos");
+    
+// }
+// segunosPasados()
 
 
+//41.
+
+// function setCookie(cname, cvalue, exdays) {
+//   const d = new Date();
+//   d.setTime(d.getTime() + (exdays*24*60*60*1000));
+//   let expires = "expires="+ d.toUTCString();
+//   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+// }
+
+// function getCookie(cname) {
+//   let name = cname + "=";
+//   let decodedCookie = decodeURIComponent(document.cookie);
+//   let ca = decodedCookie.split(';');
+//   for(let i = 0; i <ca.length; i++) {
+//     let c = ca[i];
+//     while (c.charAt(0) == ' ') {
+//       c = c.substring(1);
+//     }
+//     if (c.indexOf(name) == 0) {
+//       return c.substring(name.length, c.length);
+//     }
+//   }
+//   return "";
+// }
+
+// let nombreCookie=getCookie("nombreUser")
+// if(nombreCookie != ""){
+//     alert("Hola de nuevo " + getCookie("nombreUser"))
+// }else{
+//     alert("Nuevo usuario")
+//     nombre = prompt("Dime tu nombre")
+//     setCookie("nombreUser", nombre, 365)
+// }
+
+// nombreUser=localStorage.getItem("nombreUser")
+// if(nombreUser != ""){
+//     alert("Hola "+ localStorage.getItem("nombreUser"))
+// }else{
+//     alert("Nuevo usuario")
+//     nombre = prompt("Dime tu nombre")
+//     localStorage.setItem("nombreUser", nombre)
+// }
+
+//38.
 
 
-
-//Hasta el 27
