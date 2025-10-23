@@ -1,54 +1,3 @@
-cargarAgenda();
-function cargarAgenda(){
-    agenda=localStorage.getItem("agenda")
-    const agendals=[]
-    if(agenda != ""){
-        alert("Agenda anterior coreectamente cargada")
-        agendals=JSON.parse(localStorage.getItem("agenda"))
-    }else{
-        alert("No se ha encontrado una agenda anterior")
-    }
-    agendaUsuario = new Agenda(JSON.parse(agendals))
-}
-
-switch(prompt("1. Añadir evento"
-    + "2. Borrar Evento"
-    + "3. Modificar Evento"
-    + "4. Desactivar las alertas de un evento"
-    + "5. Borrar eventos pasados"
-    + "6. Salir sin guardar"
-    + "7. Salir guardando y mostrando la agenda"
-)){
-    case 1:
-        function asdf(){};
-        break
-    case 2:
-        function asdf(){};
-        break
-    case 3:
-        function asdf(){};
-        break
-    case 4:
-        function asdf(){};
-        break
-    case 5:
-        function asdf(){};
-        break
-    case 6:
-        function asdf(){};
-        break
-    case 7:
-        function asdf(){};
-        break
-}
-
-class Agenda{
-    eventos
-    constructor(evento){
-        this.eventos.push(evento)
-    }
-}
-
 class Evento{
     nombre
     fecha
@@ -94,15 +43,88 @@ class Invitado{
     }
 }
 
-function agregarEvento(evento){
-    agendaUsuario.eventos.push(evento)
+let agendaLS= cargarAgenda()
+const agenda= [...agendaLS].map((evento) => new Evento(evento))
+
+switch(prompt("1. Añadir evento"
+    + "2. Borrar Evento"
+    + "3. Modificar Evento"
+    + "4. Desactivar las alertas de un evento"
+    + "5. Borrar eventos pasados"
+    + "6. Salir sin guardar"
+    + "7. Salir guardando y mostrando la agenda"
+)){
+    case "1":
+        agregarEvento()
+        break
+    case "2":
+        borrarEvento()
+        break
+    case "3":
+        modificarEvento()
+        break
+    case "4":
+
+        break
+    case "5":
+        borrarEventosPasados()
+        break
+    case "6":
+        mostrarEventos()
+        break
+    case "7":
+        guardarAgenda()
+        mostrarEventos()
+        break
+    default:
+        mostrarEventos()
+}
+
+function cargarAgenda(){
+    comprobante=localStorage.getItem("agenda")
+    let agendaUsuario = [];
+    if(comprobante != null){
+        alert("Agenda anterior coreectamente cargada")
+        agendaUsuario = JSON.parse(localStorage.getItem("agenda"));
+    }else{
+        alert("No se ha encontrado una agenda anterior")
+    }
+
+    return agendaUsuario;
+}
+
+function guardarAgenda(){
+    localStorage.setItem(jsx(JSON.stringify(agenda)))
+}
+
+function agregarEvento(){
+    let nombre =prompt("Dime el nombre del evento")
+    let fecha =prompt("Dime fecha del evento formato 'AAAA-MM-DDTHH:MM'")
+    let lugar =prompt("Dime el lugar")
+    let bool =prompt("¿Van a venir invitados? Si/No")
+    let invitados= new Array;
+    if (bool=="Si"){
+        let cantidad= prompt("Dime cuantos")
+        while(cantidad>0){
+            let nombre= prompt("Dime el nombre del invitado "+ cantidad)
+            let email = prompt("Dime su email")
+            invitados.push(new Invitado(nombre, email))
+            cantidad--
+        }
+    }
+
+    let alertas =prompt("¿Quieres poner alguna alerta")
+
+    let eventoNuevo = new Evento(nombre, fecha, lugar, invitados, alertas)
+    agendals.push(eventoNuevo)
 }
 
 function mostrarEventos(){
     agendaUsuario.eventos.forEach(element => {element.mostrarEvento})
 }
 
-function borrarEvento(nombre){
+function borrarEvento(){
+    let nombre =prompt("Dime el nombre del evento")
     agendaUsuario.eventos.slice(agendaUsuario.eventos.find((element) => element.nombre == nombre))
 }
 
@@ -110,7 +132,8 @@ function borrarEventosPasados(){
     agendaUsuario.eventos.slice(agendaUsuario.find((element)=> element.fecha < Date.now()))
 }
 
-function modificarEvento(nombre){
+function modificarEvento(){
+    let nombre= prompt("Dime el nombre del evento")
     switch(prompt("1. Modificar nombre"
     + "2. Modificar Fecha"
     + "3. Modificar Lugar"
@@ -144,7 +167,12 @@ function modificarEvento(nombre){
         encontrado = agendaUsuario.eventos.find((element) => {element.nombre == nombre} ).agregarInvitado(nuevoInvitado)
         break
     case 5:
+
         break
 }   
     
+}
+
+function desactivarAlertas(evento){
+
 }
