@@ -30,9 +30,9 @@ class Evento{
                         Fecha/hora: ${this.fechaHora}<br>
                         Lugar: ${this.lugar}<br>
                         Invitados: <ul>` +
-                        this.invitados.map(inv => `<li>${inv.nombre} Email: ${inv.email}</li>`) +
+                        this.invitados.map(invitado => `<li>${invitado.nombre} Email: ${invitado.email}</li>`) +
                         `</ul>Alertas: <ul>` +
-                        this.alertas.map(alt => `<li>${alt.fechaHora}: ${alt.mensajeAlerta}</li>`)+
+                        this.alertas.map(alerta => `<li>${alerta.fechaHora}: ${alerta.mensajeAlerta}</li>`)+
                         `</ul>`+
                         '<hr color=red>';
     }
@@ -69,9 +69,7 @@ function cargarAgenda(){
     if(agendaLS){
         alert("Agenda anterior cargada");
         return JSON.parse(agendaLS).map(e =>
-            new Evento(e.nombre, e.fechaHora, e.lugar,
-                       e.invitados,
-                       e.alertas)
+            new Evento(e.nombre, e.fechaHora, e.lugar, e.invitados, e.alertas)
         );
     }else{
         alert("No se ha encontrado una agenda anterior");
@@ -85,6 +83,8 @@ function guardarAgenda(){
 }
 
 const agenda = cargarAgenda();
+
+agenda.forEach(e => e.activarAlertas());
 
 let salir = false;
 do{
@@ -171,14 +171,14 @@ function borrarEvento(){
 }
 
 function borrarEventosPasados(){
-    const ahora = new Date().toISOString().slice(0,16);
-    agenda = agenda.filter(e=>{
-        if(e.fechaHora < ahora){
-            e.desactivarAlertas();
-            return false;
-        }
-        return true;
-    });
+    const ahora = new Date();
+    const id= agenda.findIndex(e=>e.fechaHora < ahora);
+    if(id<0){ 
+        alert("No encontrado"); 
+        return; 
+    }
+    agenda[id].desactivarAlertas();
+    agenda.splice(id,1);
 }
 
 function modificarEvento(){
