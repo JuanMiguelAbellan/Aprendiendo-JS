@@ -32,7 +32,7 @@ class Evento{
                         Invitados: <ul>` +
                         this.invitados.map(invitado => `<li>${invitado.nombre} Email: ${invitado.email}</li>`) +
                         `</ul>Alertas: <ul>` +
-                        this.alertas.map(alerta => `<li>${alerta.fechaHora}: ${alerta.mensajeAlerta}</li>`)+
+                        this.alertas.map(alerta => {if(alerta.timerID>0){ return`<li>${alerta.fechaHora}: ${alerta.mensajeAlerta}</li>`}})+
                         `</ul>`+
                         '<hr color=red>';
     }
