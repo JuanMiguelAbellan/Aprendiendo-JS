@@ -32,6 +32,7 @@ class Evento{
                         Invitados: <ul>` +
                         this.invitados.map(invitado => `<li>${invitado.nombre} Email: ${invitado.email}</li>`) +
                         `</ul>Alertas: <ul>` +
+                        //Necesita un return por que en un callback al ponerle las {} no hay un return implicito y hay que indicarselo sin {} el return se asume que sera el codigo
                         this.alertas.map(alerta => {if(alerta.timerID>0){ return`<li>${alerta.fechaHora}: ${alerta.mensajeAlerta}</li>`}})+
                         `</ul>`+
                         '<hr color=red>';
