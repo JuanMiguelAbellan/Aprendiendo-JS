@@ -1,14 +1,16 @@
 //Mostrar un alert con la tecla que se ha pulsado. 
 //Indicar también si estaba pulsada simultáneamente la tecla Alt o la tecla Ctrl
 
-window.addEventListener("keydown", function(e){
+window.addEventListener("keyup", function(e){
+
+    // alert('Tecla pulsada: ' + e.key + "y has pulsado: " + e.shiftKey?"Shift" : e.ctrlKey?"Ctrl" : e.altKey?"Alt");
     if(e.shiftKey){
-        document.getElementById("parrafo").innerHTML = "Tecla pulsada: " + e.key + " con shift"
+        alert("Tecla pulsada: " + e.key + " con shift")
     }else if(e.ctrlKey){
-        document.getElementById("parrafo").innerHTML = "Tecla pulsada: " + e.key + " con Crtl"
+        alert("Tecla pulsada: " + e.key + " con crtl");
     }else if(e.altKey){
-        document.getElementById("parrafo").innerHTML = "Tecla pulsada: " + e.key + " con Alt"
+        alert("Tecla pulsada: " + e.key + " con alt");
     }else{
-        document.getElementById("parrafo").innerHTML = "Tecla pulsada: " + e.key + " sola"
+        alert("Tecla pulsada: " + e.key + " sola");
     }
 })

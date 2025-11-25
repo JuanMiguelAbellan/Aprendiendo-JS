@@ -17,11 +17,25 @@ window.addEventListener('load', function(evento){
 
 //No funciona
 window.addEventListener('beforeunload', function(evento){
-    this.confirm("Adios");
-
+    evento.returnValue = "Adios";
     console.log("Target " + evento.target);
     console.log("Tipo " + evento.type);
-    
+});
 
-    evt.returnValue = '';
+const beforeUnloadHandler = (event) => {
+  // Recommended
+  event.preventDefault();
+
+  // Included for legacy support, e.g. Chrome/Edge < 119
+  event.returnValue = true;
+};
+
+const nameInput = document.querySelector("#name");
+
+nameInput.addEventListener("input", (event) => {
+  if (event.target.value !== "") {
+    window.addEventListener("beforeunload", beforeUnloadHandler);
+  } else {
+    window.removeEventListener("beforeunload", beforeUnloadHandler);
+  }
 });
