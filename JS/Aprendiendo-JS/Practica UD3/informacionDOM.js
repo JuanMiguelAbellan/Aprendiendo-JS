@@ -14,22 +14,24 @@
 // El método getElementsByTagName()  también existen pero recomendable con los indicados por ser más actuales y flexibles.
 
 document.addEventListener("DOMContentLoaded", function(e){
-    console.log(document.querySelectorAll("p").length);
-    console.log(document.querySelector("p").textContent.slice(0, 21));
-    console.log(document.querySelectorAll("a").length);
-    console.log(document.querySelector(".resaltado").querySelector("a").getAttribute("href"));
-    // let listaEnlaces= document.querySelectorAll("a");
-    // for(let i =document.querySelectorAll("a").length; i>=0; i--){
-    //     if(i==2){
-    //         console.log(listaEnlaces[i].getAttribute("href"));
-    //     }
-    // }
-    console.log(document.querySelector("img").closest("a").getAttribute("href"));
-    console.log(document.querySelectorAll("a[href='https://www.cpifppiramide.com/']").length);
-    console.log(document.querySelector(".resaltado").querySelectorAll("a").length)
-    // let listaP= document.querySelectorAll("p[color=red]")
-    // let listaA = listaP.querySelectorAll("a")
-    // console.log(listaA.length);
-    console.log(document.querySelector(".resaltado") );
+    document.body.innerHTML += "<div id='mostrarInformacion'>"
     
+    document.querySelector("#mostrarInformacion").innerHTML+="Número de párrafos que contiene el documento. " + document.querySelectorAll("p").length;
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "Los 20 primeros caracteres del primer párrafo. " + document.querySelector("p").textContent.slice(0, 21);
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "El número de enlaces. " + document.querySelectorAll("a").length;
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "La dirección a la que apunta el segundo enlace. " + document.querySelectorAll("a")[1].getAttribute("href");
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "La dirección a la que apunta el penúltimo enlace. " + document.querySelector("img").closest("a").getAttribute("href");
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "El numero de enlaces que apuntan a “https://www.cpifppiramide.com/” " + document.querySelectorAll("a[href='https://www.cpifppiramide.com/']").length;
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "El número de enlaces que hay en el segundo párrafo. " + document.querySelectorAll("p")[1].querySelectorAll("a").length;
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    document.querySelector("#mostrarInformacion").innerHTML+= "El número de enlaces hijos de un “p” que tenga color red " + document.querySelectorAll("p[color=red]");
+    document.querySelector("#mostrarInformacion").innerHTML+= "<br>"
+    
+    document.body.innerHTML += "</div>"
 })
