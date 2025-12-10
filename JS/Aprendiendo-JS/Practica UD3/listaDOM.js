@@ -10,24 +10,25 @@ document.addEventListener("DOMContentLoaded", eventos);
 
 function eventos(){
     document.querySelector("button").addEventListener("click", function(e){
-        const titulo=document.createElement("li");
-        titulo.textContent=prompt("Dime el titulo de la lista");
-        const ul=document.createElement("ul");
-        const section = document.createElement("section");
-        const li = document.createElement("li")
-        const button = document.createElement("button")
-        li.appendChild(button)
-        button.textContent="Añadir tarea"
-        button.addEventListener("click", function(e){
-            const li=document.createElement("li");
-            li.textContent=prompt("Dime el titulo de la lista");
-            this.parentElement.parentElement.append(li)
-        })
-        document.querySelector("main")
-        .appendChild(section)
-        .appendChild(ul)
-        .appendChild(titulo)
-        .appendChild(li);
+    const main = document.querySelector("main")
+    const section = document.createElement("section");
+    const titulo=document.createElement("h3");
+    titulo.textContent=prompt("Dime el titulo de la lista");
+    const ul=document.createElement("ul");
+    const button = document.createElement("button")
+
+    main.append(section)
+    section.prepend(titulo)
+    section.append(ul)
+    ul.after(button)
+    
+    button.textContent="Añadir tarea"
+    button.addEventListener("click", function(e){
+        const li = document.createElement("li");
+        li.textContent=prompt("Dime el titulo de la Tarea");
+        ul.append(li);
+    })
+        
     })
 }
 

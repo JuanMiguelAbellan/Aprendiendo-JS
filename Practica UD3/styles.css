@@ -1,0 +1,20 @@
+form{
+    padding: 5px;
+    margin: auto;
+}
+span{
+    color: red;
+}
+label{
+    height: 10vw;
+    width: 20vw;
+}
+input{
+    position: absolute;
+    margin: auto;
+    padding: auto;
+    margin-top: 5px;
+    width: 30vw;
+    height: auto;
+    left: 30vw;
+}
