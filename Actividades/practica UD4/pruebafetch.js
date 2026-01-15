@@ -12,13 +12,20 @@ function pintarTareas(tareas){
         addTarea(ol, e)
     })
     main.append(ol)
-    main.append(butAñadir)
+    document.querySelector("h1").append(butAñadir)
 }
 
 function cargarTareas(){
     fetch(URL_SERVER+"/tareas")
-    .then(response => response.json())
-    .then(data => pintarTareas(data));
+    .then(response => {
+        if(response.ok){
+            return response.json()
+        }else{
+            throw new Error(response.statusText)
+        }
+    })
+    .then(data => pintarTareas(data))
+    .catch(error => console.log(error))
 }
 
 function añadirTarea(){
@@ -35,14 +42,30 @@ function añadirTarea(){
     }
     let ol = document.querySelector("ol");
     fetch(URL_SERVER+"/tareas", options)
-    .then(response => response.json())
+    .then(response => {
+        if(response.ok){
+            return response.json()
+        }else{
+            throw new Error(response.statusText)
+        }
+    })
     .then(data => addTarea(ol, data))
+    .catch(error => console.log(error))
 }
 
 function borrarTarea(e){
     fetch(URL_SERVER+"/tareas/"+e.target.id, {method: "DELETE"})
-    .then(response => response.json())
-    .then(document.getElementById(e.target.id).remove())
+    .then(response => {
+        if(response.ok){
+            return response.json()
+        }else{
+            throw new Error(response.statusText)
+        }
+    })
+    .catch(error => console.log(error))
+    .then(data => document.getElementById(data.id).remove())
+    .catch(error => console.log(error))
+    
 }
 
 function addTarea(ol, tarea){
