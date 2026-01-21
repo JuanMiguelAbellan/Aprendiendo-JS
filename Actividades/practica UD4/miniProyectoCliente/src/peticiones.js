@@ -15,6 +15,7 @@ export function get(ruta, condicion, callback, callbackError){
 }
 
 export function post(ruta, datos, callback, callbackError){
+    
     const options={
         method: "POST", 
         body: JSON.stringify(datos),

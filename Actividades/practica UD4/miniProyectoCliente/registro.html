@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <script type="module" src="src/constantes.js" ></script>
+    <script type="module" src="src/servicios.js"></script>
+    <script type="module" src="src/peticiones.js"></script>
+    <script type="module" src="src/registro.js" ></script>
 </head>
 <body>
-    
+    <form>
+        <label>Email: </label>
+        <input type="text" id="email">
+        <label>Password: </label>
+        <input type="password" id="password">
+        <label>Nombre: </label>
+        <input type="text" id="nombre">
+        <label>Apellidos: </label>
+        <input type="text" id="apellidos">
+        <label>¿Quieres esta subscrito a la noticias? </label>
+        <input type="checkbox" id="news">
+        <select>
+            <option id="plan">Premium</option>
+            <option id="plan">Free</option>
+        </select>
+        <button>Enviar</button>
+    </form>
 </body>
 </html>

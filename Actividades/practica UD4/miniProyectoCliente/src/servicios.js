@@ -13,16 +13,16 @@ export function pedirUsusarios(username, password){
     })
 }
 
-export function registroUsuario(username, password, nombre, apellidos, news, plan){
-    let datos = {
-        email : username,
-        password : password,
-        nombre : nombre,
-        apellidos : apellidos,
-        news : news,
-        plan : plan
-    }
-    post("/usuarios", datos)
+export function registroUsuario(data){
+    post("/usuarios", data, (e)=>{
+        
+        sessionStorage.setItem("id", e[0].id)
+        document.location.assign("tareas.html")
+    }, (e)=>{
+        let h1= document.createElement("h1")
+        h1.textContent="Algo ha salido mal por que " +e;
+        document.querySelector("body").append(h1)
+    })
 }
 
 export function pedirTareas(id, callback){
