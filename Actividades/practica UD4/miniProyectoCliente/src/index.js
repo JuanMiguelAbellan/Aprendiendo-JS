@@ -12,7 +12,3 @@ function login(){
     let password = document.querySelector("#password")
     pedirUsusarios(email, password)
 }
-
-function registro(){
-
-}

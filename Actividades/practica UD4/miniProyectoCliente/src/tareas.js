@@ -21,7 +21,9 @@ function addTarea(ol, tarea){
     let li = document.createElement("li")
     let check = document.createElement("input")
     check.setAttribute("type", "checkbox")
-    cheked
+    if(tarea.acabada == "true"){
+        check.checked=true
+    }
     li.textContent = tarea.nombre;
     li.append(check)
     ol.append(li)

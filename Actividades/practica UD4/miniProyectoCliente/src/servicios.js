@@ -1,4 +1,5 @@
 import { get } from "./peticiones.js"
+import { post } from "./peticiones.js";
 
 
 export function pedirUsusarios(username, password){
@@ -12,8 +13,16 @@ export function pedirUsusarios(username, password){
     })
 }
 
-export function registro(){
-
+export function registroUsuario(username, password, nombre, apellidos, news, plan){
+    let datos = {
+        email : username,
+        password : password,
+        nombre : nombre,
+        apellidos : apellidos,
+        news : news,
+        plan : plan
+    }
+    post("/usuarios", datos)
 }
 
 export function pedirTareas(id, callback){
